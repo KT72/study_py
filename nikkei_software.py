@@ -1,8 +1,17 @@
-#条件判断
-import random
+#繰り返し
 
-if random.randint(1,2) == 1:#真
-    print("奇数")
-else:#偽　偽というのはどうだろうか・・・
-    print("偶数")
+#範囲を検索する繰り返し
+datas = [1,2,3]
 
+for data in datas:
+    print(data)
+
+#機械的に範囲を提供する
+
+for num in range(10):#10個の範囲　０～９：ゼロスタート
+    print(num)
+
+#データ（値）：属性　　メソッド（処理）：振舞
+fruits = ["みかん","リンゴ","バナナ","桃"]
+fruits_taruts = [elm + "タルト" for elm in fruits]
+print(fruits_taruts)
