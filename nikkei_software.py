@@ -1,17 +1,15 @@
-#繰り返し
+"""実践：画像を一括リサイズ　※準備が面倒なのでソースタイピングのみ
 
-#範囲を検索する繰り返し
-datas = [1,2,3]
+import os
+from PIL import Image
 
-for data in datas:
-    print(data)
+fnames = os.listdir("potho")
 
-#機械的に範囲を提供する
+for fname in fnames:
+    if "cat" in fname:
+        fpath = os.path.join("photo",fname)
+        img = Image.open(fpath)
+        img.thumbnail((150,150))
+        img.save(fpath)
 
-for num in range(10):#10個の範囲　０～９：ゼロスタート
-    print(num)
-
-#データ（値）：属性　　メソッド（処理）：振舞
-fruits = ["みかん","リンゴ","バナナ","桃"]
-fruits_taruts = [elm + "タルト" for elm in fruits]
-print(fruits_taruts)
+"""
