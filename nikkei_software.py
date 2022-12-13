@@ -1,15 +1,21 @@
-#GUI:tkinter
-
 from tkinter import *
-from tkinter import messagebox,ttk
+#from tkinter import ttk
 
-def buttonClicked():
-    messagebox.showinfo(root.title(),"ありがとうございます！")
+class TextEdit:
+    def __init__(self,root):
+        root.title(self.__class__.__name__)
+        root.geometry('300x50')
+
+        root.option_add('*tearOff',FALSE)
+        menu = Menu()
+        menuFile = Menu()
+        menu.add_cascade(menu=menuFile,label='ファイル(F)')
+        menuFile.add_command(label='終了(X)',underline=3,command=self.menuFileExit)
+        root['menu'] = menu
+
+    def menuFileExit(self):
+        root.destroy()
 
 root = Tk()
-root.title("TextEdit")
-root.geometry("300x50")
-
-ttk.Button(text="押してください",command=buttonClicked).pack()
-
+TextEdit(root)
 root.mainloop()
